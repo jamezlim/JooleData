@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace Joole.Data
 {
         [MetadataType(typeof( UserMetadata))]
-        [Bind(Exclude = "UserId" )] 
+        [Bind(Exclude = "UserId")] 
         public partial class tblUser
         {
             [NotMapped]

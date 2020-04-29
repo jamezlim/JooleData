@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace Joole.Data
 {
@@ -16,7 +17,8 @@ namespace Joole.Data
 
         [Required]
         [StringLength(20)]
-        public string UserName;
+        [Remote(action: "IsUserNameExist", controller:"Home", ErrorMessage = "UserName already in use")]
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -26,8 +28,9 @@ namespace Joole.Data
         [Required]
         [StringLength(320)]
         [EmailAddress]
+        [Remote(action: "IsEmailExist", controller: "Home", ErrorMessage = "Current e-mail address already in use")]
         [Display(Name = "Email Address")]
-        public string UserEmail;
+        public string UserEmail { get; set; }
 
         public byte[] UserImage;
     }

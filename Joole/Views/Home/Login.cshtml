@@ -28,7 +28,7 @@
         <div class="modal-content">
             <h3> Register as User </h3>
             <span class="close">&times;</span><hr />
-            @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <div id="profileContainer">
                     <label> Image Preview </label><br />
